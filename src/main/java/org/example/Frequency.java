@@ -11,7 +11,7 @@ public class Frequency {
         HashMap<String, Integer> map = new HashMap<>();
         String[] str;
         String line;
-        StringBuilder Text = new StringBuilder(" ");
+        StringBuilder text = new StringBuilder(" ");
         Logger l = Logger.getLogger("NITHISH");
 
         //Open File in read mode
@@ -20,9 +20,9 @@ public class Frequency {
 
         //Reads each line
         while ((line = br.readLine()) != null) {
-            Text.append(line);
+            text.append(line);
         }
-        str = Text.toString().split(" ");
+        str = text.toString().split(" ");
         for(int i = 0 ; i<str.length; i++) {
             String val = str[i];
             l.log(Level.INFO,()->val);
@@ -34,7 +34,7 @@ public class Frequency {
                 map.put(str[i],1);
             }
         }
-        l.info("Sorted Text....");
+        l.info("Sorted text....");
         PriorityQueue<Map.Entry<String, Integer>> p = new PriorityQueue<>((a,b)-> b.getValue() - a.getValue());
         p.addAll(map.entrySet());
         while (!p.isEmpty()){
